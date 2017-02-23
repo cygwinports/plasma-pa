@@ -1,0 +1,11 @@
+inherit kf5
+
+NAME="plasma-pa"
+VERSION=5.8.5
+RELEASE=1
+CATEGORY="KDE"
+SUMMARY="KDE Plasma audio volume controls"
+DESCRIPTION="This provides the user with a mechanism to control the volume of
+devices and applications using the PulseAudio sound system."
+
+PATCH_URI="5.8.3-cygwin-compile.patch"

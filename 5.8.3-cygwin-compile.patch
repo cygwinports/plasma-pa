@@ -1,0 +1,89 @@
+--- origsrc/plasma-pa-5.8.3/src/maps.cpp	2016-11-01 07:21:31.000000000 -0500
++++ src/plasma-pa-5.8.3/src/maps.cpp	2016-11-29 03:33:56.358320000 -0600
+@@ -18,4 +18,4 @@
+     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+-#include "maps.h"
++#include "context.h"
+--- origsrc/plasma-pa-5.8.3/src/maps.h	2016-11-01 07:21:31.000000000 -0500
++++ src/plasma-pa-5.8.3/src/maps.h	2016-11-29 03:27:22.122710100 -0600
+@@ -28,18 +28,16 @@
+ #include <pulse/pulseaudio.h>
+ #include <pulse/ext-stream-restore.h>
+ 
++#include "card.h"
++#include "client.h"
++#include "sink.h"
++#include "sinkinput.h"
++#include "source.h"
++#include "sourceoutput.h"
++#include "streamrestore.h"
++
+ namespace QPulseAudio
+ {
+-
+-// Used for typedefs.
+-class Card;
+-class Client;
+-class Sink;
+-class SinkInput;
+-class Source;
+-class SourceOutput;
+-class StreamRestore;
+-
+ /**
+  * @see MapBase
+  * This class is nothing more than the QObject base since moc cannot handle
+--- origsrc/plasma-pa-5.8.3/src/pulseaudio.h	2016-11-01 07:21:31.000000000 -0500
++++ src/plasma-pa-5.8.3/src/pulseaudio.h	2016-11-29 03:33:34.661183200 -0600
+@@ -24,12 +24,10 @@
+ 
+ #include <QAbstractListModel>
+ 
+-#include "maps.h"
++#include "context.h"
+ 
+ namespace QPulseAudio
+ {
+-    class Context;
+-
+ class Q_DECL_EXPORT AbstractModel : public QAbstractListModel
+ {
+     Q_OBJECT
+--- origsrc/plasma-pa-5.8.3/src/sinkinput.cpp	2016-11-01 07:21:31.000000000 -0500
++++ src/plasma-pa-5.8.3/src/sinkinput.cpp	2016-11-29 03:34:50.499073800 -0600
+@@ -18,9 +18,8 @@
+     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+-#include "sinkinput.h"
+-
+ #include "context.h"
++#include "sinkinput.h"
+ 
+ namespace QPulseAudio
+ {
+--- origsrc/plasma-pa-5.8.3/src/sourceoutput.cpp	2016-11-01 07:21:31.000000000 -0500
++++ src/plasma-pa-5.8.3/src/sourceoutput.cpp	2016-11-29 03:35:10.201273900 -0600
+@@ -18,9 +18,8 @@
+     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+-#include "sourceoutput.h"
+-
+ #include "context.h"
++#include "sourceoutput.h"
+ 
+ namespace QPulseAudio
+ {
+--- origsrc/plasma-pa-5.8.3/src/stream.cpp	2016-11-01 07:21:31.000000000 -0500
++++ src/plasma-pa-5.8.3/src/stream.cpp	2016-11-29 03:35:36.753429500 -0600
+@@ -18,6 +18,7 @@
+     License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
++#include "context.h"
+ #include "stream.h"
+ 
+ namespace QPulseAudio
